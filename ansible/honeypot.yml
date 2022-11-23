@@ -1,0 +1,9 @@
+---
+
+- name: Honeypot Setup
+  hosts: honeypot
+  become: true
+  vars_files:
+    - vars/var.yml
+  tasks:
+    - include_tasks: tasks/elastic.yml
