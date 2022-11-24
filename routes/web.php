@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,5 +29,7 @@ Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::post('/profile', [HomeController::class, 'upload'])->name('profile');
 
 Route::get('/challenge-1', [HomeController::class, 'challenge1'])->name('challenge-1');
+
+Route::post('/challenge-1', [ChallengeController::class, 'challenge1']);
 
 Route::get('/challenge-2', [HomeController::class, 'challenge2'])->name('challenge-2');
