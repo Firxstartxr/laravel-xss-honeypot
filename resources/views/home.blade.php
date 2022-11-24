@@ -16,6 +16,26 @@
 
                     {{ __('Challenges') }}
                 </div>
+
+                <div class="card-body">
+                    <a href="{{ route('challenge-1') }}">Challenge 1</a>
+                </div>
+
+                <div class="card-body">
+                    <a href="{{ route('challenge-2') }}">Challenge 2</a>
+                </div>
+
+                <div class="card-body">
+                    <a>Challenge 3</a>
+                </div>
+
+                <div class="card-body">
+                    <a>Challenge 4</a>
+                </div>
+
+                <div class="card-body">
+                    <a>Challenge 5</a>
+                </div>
             </div>
         </div>
     </div>

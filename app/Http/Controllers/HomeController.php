@@ -40,4 +40,14 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
+
+    public function challenge1()
+    {
+        return view ('challenges/challenge-1');
+    }
+
+    public function challenge2()
+    {
+        return view ('challenges/challenge-2');
+    }
 }
