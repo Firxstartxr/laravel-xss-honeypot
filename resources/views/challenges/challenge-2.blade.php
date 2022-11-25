@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <?php
-
-    ?>
     <p>This time it is not going to be that easy</p>
-    {{-- just don't use <script> --}}
+    <!-- Don't use <script> lol -->
     <form action="{{Route('challenge-2')}}" method="POST">
     <input type="text" name="challenge2">
     <button type="submit">Click me daddy</button>

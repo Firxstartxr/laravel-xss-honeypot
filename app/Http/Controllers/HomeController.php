@@ -33,11 +33,20 @@ class HomeController extends Controller
 
     public function upload(Request $request)
     {
-        if($request->hasFile('image')){
-            $filename = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$filename,'public');
-            Auth()->user()->update(['image'=>$filename]);
-        }
+        $request->validate([
+            'file' => 'required|mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        try {
+            if($request->hasFile('image')){
+                $filename = $request->image->getClientOriginalName();
+                $request->image->storeAs('images',$filename,'public');
+                Auth()->user()->update(['image'=>$filename]);
+            }
+        } catch (\Exception $e) {
+        return redirect()->back();
+    }
+
         return redirect()->back();
     }
 
@@ -49,5 +58,10 @@ class HomeController extends Controller
     public function challenge2()
     {
         return view ('challenges/challenge-2');
+    }
+
+    public function challenge3()
+    {
+        return view ('challenges/challenge-3');
     }
 }
