@@ -2,16 +2,12 @@
 
 @section('content')
     <?php
-    echo("Thanks Preben for the challenge");
-    echo('<br /><br />');
-    echo('Not working yet');
-    $html = "
-<button onclick='window.location.href = \"\"'>Click me!</button>
-";
-    echo $html;
-    /*$url = $_GET['getData'];*/
-    if (isset($url)) {
-        $data = file_get_contents($url);
-        echo $data;
-    }?>
+
+    ?>
+    <p>This time it is not going to be that easy</p>
+    {{-- just don't use <> --}}
+    <form action="{{Route('challenge-2')}}" method="POST">
+    <input type="text" name="challenge2">
+    <button type="submit">Click me daddy</button>
+    </form>
 @endsection
