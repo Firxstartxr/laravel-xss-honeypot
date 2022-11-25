@@ -14,5 +14,5 @@ http_conf: "honeypot.conf"
 https_conf: "honeypot-ssl.conf"
 
 # Passwords
-database_password: "pu$$y$layer1337"
+database_password: "lexasprok"
 kibana_password: "lexasprok"
