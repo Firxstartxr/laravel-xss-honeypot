@@ -32,6 +32,6 @@ Route::get('/challenge-1', [HomeController::class, 'challenge1'])->name('challen
 
 Route::post('/challenge-1', [ChallengeController::class, 'challenge1']);
 
-/*Route::get('/challenge-2', [HomeController::class, 'challenge2'])->name('challenge-2');*/
+Route::get('/challenge-2', [HomeController::class, 'challenge2'])->name('challenge-2');
 
-/*Route::post('/challenge-2/', [ChallengeController::class, 'challenge2']);*/
+Route::post('/challenge-2/', [ChallengeController::class, 'challenge2']);

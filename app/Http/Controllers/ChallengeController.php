@@ -21,10 +21,18 @@ class ChallengeController extends Controller
         }
     }
 
-    /*public function challenge2(Request $request)
+    public function challenge2(Request $request)
     {
         $challenge=$request->challenge2;
-
-        return view('challenges/challenge-2-solved')->with(compact('challenge'));
-    }*/
+        if(!is_null($challenge) || !blank($challenge))
+        {
+            $user = $request->user()->name;
+            $ip = $request->ip();
+            $url = $request->url();
+            Log::alert("The user $user used $challenge payload from IP address $ip url $url");
+            if (!str_contains($challenge, '<script>')) {
+                return view('challenges/challenge-2-solved')->with(compact('challenge'));
+            }
+        }
+    }
 }

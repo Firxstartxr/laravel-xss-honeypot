@@ -5,7 +5,7 @@
 
     ?>
     <p>This time it is not going to be that easy</p>
-    {{-- just don't use <> --}}
+    {{-- just don't use <script> --}}
     <form action="{{Route('challenge-2')}}" method="POST">
     <input type="text" name="challenge2">
     <button type="submit">Click me daddy</button>
