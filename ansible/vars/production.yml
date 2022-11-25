@@ -1,17 +1,15 @@
 ---
-# Use your own keyfile location
 # Variables for config
-env: "local"
+env: "production"
 
-user: "debian"
-http_url: "https://honeypot"
-https_url: "https://honeypot"
+user: "killerb"
+http_url: "https://rgp04.hp.ti.howest.be"
+https_url: "https://rgp04.hp.ti.howest.be"
 
 home_folder: "/home/{{user}}"
 honeypot_folder: "{{home_folder}}/honeypot"
 www_folder: "/var/www/honeypot"
-git_repo: "https://git.ti.howest.be/TI/2022-2023/s3/websecurity-and-honeypot/students/group-03/honeypot.git"
-# key_file: "/home/debian/.ssh/id.ed"
+git_repo: "https://honeypot:ji3XuwjUXBhoHnS8kawR@git.ti.howest.be/TI/2021-2022/s3/web-security/projects/project-26/honeypot.git"
 http_conf: "honeypot.conf"
 https_conf: "honeypot-ssl.conf"
 
