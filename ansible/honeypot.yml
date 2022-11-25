@@ -4,6 +4,8 @@
   hosts: honeypot
   become: true
   vars_files:
-    - vars/var.yml
+    - vars/local.yml
   tasks:
+    - include_tasks: tasks/install.yml
+    - include_tasks: tasks/config.yml 
     - include_tasks: tasks/elastic.yml

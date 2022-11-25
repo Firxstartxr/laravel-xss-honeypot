@@ -1,0 +1,54 @@
+- name: Install Elasticsearch repository public key
+  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+- name: Add Elastic search repository
+  shell: echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+
+- name: Update apt repository
+  shell: sudo apt update
+
+- name: Install ELK dependencies
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'curl', 'gnupg', 'apt-transport-https', 'default-jdk' ]
+
+- name: Install ELK
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'elasticsearch', 'kibana', 'logstash' ]
+
+
+# Start ELK Services
+- name: Start Daemon sevice
+  shell: sudo systemctl daemon-reload
+
+- name: Start Elasticsearch sevice
+  shell: sudo systemctl enable elasticsearch.service
+
+# Configure Elasticsearch
+- name: Elastic - Configure Elasticsearch seed_hosts
+  shell: "sudo sed -i 's/#discovery.seed_hosts: [\"host1\", \"host2\"]/discovery.seed_hosts: []/g' /etc/kibana/kibana.yml"
+
+- name: Elastic - Check single-node status
+  shell: "grep -c 'discovery.type:  single-node' /etc/elasticsearch/elasticsearch.yml || true"
+  register: single_node
+
+- name: Elastic - Configure Elasticsearch single_node
+  lineinfile:
+    dest: /etc/elasticsearch/elasticsearch.yml
+    line: 'discovery.type:  single-node'
+  when: single_node.stdout == "0"
+
+- name: Elastic - Check Elasticsearch xpack status
+  shell: "grep -c 'xpack.security.enabled: true' /etc/elasticsearch/elasticsearch.yml || true"
+  register: elastic_xpack
+
+- name: Elastic - Configure Elasticsearch xpack
+  lineinfile:
+    dest: /etc/elasticsearch/elasticsearch.yml
+    line: 'xpack.security.enabled: true'
+  when: elastic_xpack.stdout == "0"
+
+- name: Elastic - Restart elasticsearch
+  shell: sudo systemctl restart elasticsearch
+
+- name: Elastic - Add {{user}} to Elasticsearch group
+  shell: "sudo usermod -aG elasticsearch {{user}}"

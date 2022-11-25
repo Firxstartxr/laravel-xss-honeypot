@@ -1,0 +1,18 @@
+---
+# Variables for config
+env: "local"
+
+user: "debian"
+http_url: "https://honeypot"
+https_url: "https://honeypot"
+
+home_folder: "/home/{{user}}"
+honeypot_folder: "{{home_folder}}/honeypot"
+www_folder: "/var/www/honeypot"
+git_repo: "https://git.ti.howest.be/TI/2022-2023/s3/websecurity-and-honeypot/students/group-03/honeypot.git"
+http_conf: "honeypot.conf"
+https_conf: "honeypot-ssl.conf"
+
+# Passwords
+database_password: "pu$$y$layer1337"
+kibana_password: "lexasprok"
