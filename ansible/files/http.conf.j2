@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName honeypot
+    ServerAdmin admin@group03web.hp.ti.howest.be
+    DocumentRoot {{www_folder}}/public
+    Redirect / {{https_url}}
+
+    <Directory {{www_folder}}>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

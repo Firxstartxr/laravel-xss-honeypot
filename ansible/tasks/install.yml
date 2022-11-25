@@ -1,0 +1,35 @@
+---
+# Install GIT, Apache, PHP, Composer & Mysql
+
+- name: Update all packages to their latest version
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install Curl
+  apt: "name=curl update_cache=yes state=latest"
+
+- name: Install Git
+  apt: "name=git update_cache=yes state=latest"
+
+- name: Install Apache
+  apt: "name=apache2 update_cache=yes state=latest"
+
+- name: Install PHP
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'php', 'php-common', 'php-bcmath', 'php-ctype', 'php-fileinfo', 'php-json', 'php-mbstring', 'php-mysql', 'php-tokenizer', 'php-xml', 'php-curl' ]
+
+- name: Install Composer
+  apt: "name=composer update_cache=yes state=latest"
+
+- name: Install MariaDB
+  apt: "name=mariadb-server update_cache=yes state=latest"
+
+- name: Install Python MariaDB
+  apt: "name=python3-pymysql update_cache=yes state=latest"
+
+- name: Install Expect
+  apt: "name=expect update_cache=yes state=latest"
+
+- name: Install NPM
+  apt: "name=npm update_cache=yes state=latest"

@@ -1,0 +1,27 @@
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName honeypot
+        ServerAdmin admin@group03web.hp.ti.howest.be
+        DocumentRoot {{www_folder}}/public
+    
+        <Directory {{www_folder}}>
+            Options FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+    
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+        SSLEngine On
+        SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
+        SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+    
+        <FilesMatch "\.(cgi|shtml|phtml|php)$">
+            SSLOptions +StdEnvVars
+        </FilesMatch>
+        <Directory /usr/lib/cgi-bin>
+            SSLOptions +StdEnvVars
+        </Directory>
+    </VirtualHost>
+</IfModule>
