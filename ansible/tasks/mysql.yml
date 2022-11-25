@@ -1,0 +1,22 @@
+# Config MYSQL
+- name: Mysql - Creates App Database
+  mysql_db:
+    name: honeypot
+    state: present
+    login_user: root  
+    login_password: "{{database_password}}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: Mysql - Import MariaDB security config
+  template:
+    src: "files/maria.conf.j2"
+    dest: "{{home_folder}}/.maria.conf"
+
+- name: Mysql - Exec MariaDB security config
+  shell: "sudo chmod +x {{home_folder}}/.maria.conf"
+
+- name: Mysql - Run MariaDB security config
+  shell: "{{home_folder}}/.maria.conf"
+
+- name: Mysql - Delete MariaDB security config
+  shell: "rm {{ home_folder }}/.maria.conf"
