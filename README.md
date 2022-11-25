@@ -9,6 +9,7 @@ System status before the deadline on November 25 10:00.
 - Admin dashboard is not yet implemented
 - Challenge 1 is only implemented
 - Users' payloads are logged
+- Authentication processes are logged
 
 ### Lecture login
 
