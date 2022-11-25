@@ -1,5 +1,9 @@
 ---
 # Configure GIT, HTTPS, Apache
+# manually cloned git access token
+# git clone https://git.ti.howest.be/TI/2022-2023/s3/websecurity-and-honeypot/students/group-03/honeypot.git
+# username: honeypot
+# password: glpat-zBC77nJ819Ln8Z5-m3YN
 
 - name: Add {{user}} to group adm
   shell: sudo usermod -aG adm {{user}}
@@ -15,18 +19,16 @@
 - name: Reload {{user}} PATH
   shell: export PATH={{ home_folder }}/.config/composer/vendor/bin:$PATH
 
-- name: Create {{honeypot_folder}}
-  file:
-    path: "{{honeypot_folder}}"
-    state: directory
+# - name: Create {{honeypot_folder}}
+#   file:
+#     path: "{{honeypot_folder}}"
+#     state: directory
 
-- name: Clone GIT repo into code directory
-  git:
-    repo: "{{git_repo}}"
-    user: "honeypot"
-    password: "glpat-zBC77nJ819Ln8Z5-m3YN"
-    dest: "{{honeypot_folder}}"
-    clone: yes
-    update: yes
-    accept_hostkey: yes
-  ignore_errors: True
+# - name: Clone GIT repo into code directory
+#   git:
+#     repo: "{{git_repo}}"
+#     dest: "{{honeypot_folder}}"
+#     clone: yes
+#     update: yes
+#     accept_hostkey: yes
+#   ignore_errors: True
