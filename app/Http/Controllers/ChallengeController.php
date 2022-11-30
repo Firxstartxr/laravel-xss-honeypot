@@ -20,8 +20,14 @@ class ChallengeController extends Controller
         {
             $user = $this->logInfo($request);
             Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
-
-            return view('challenges/challenge-1-solved')->with(compact('challenge'));
+            if (str_contains($challenge, 'alert')) {
+                return view('challenges/challenge-1-solved')->with(compact('challenge'));
+            }else {
+                return view('challenges/challenge-1')->with(compact('challenge'));
+            }
+        }
+        else {
+            return view('challenges/challenge-1')->with(compact('challenge'));
         }
     }
 
@@ -35,7 +41,12 @@ class ChallengeController extends Controller
 
             if (!str_contains($challenge, '<script>')) {
                 return view('challenges/challenge-2-solved')->with(compact('challenge'));
+            }else {
+                return view('challenges/challenge-2')->with(compact('challenge'));
             }
+        }
+        else {
+            return view('challenges/challenge-2')->with(compact('challenge'));
         }
     }
 
@@ -47,7 +58,14 @@ class ChallengeController extends Controller
             $user = $this->logInfo($request);
             Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
 
-            return view('challenges/challenge-3-solved')->with(compact('challenge'));
+            if (str_contains($challenge, '<canvas')) {
+                return view('challenges/challenge-3-solved')->with(compact('challenge'));
+            } else {
+                return view('challenges/challenge-3')->with(compact('challenge'));
+            }
+        }
+        else {
+            return view('challenges/challenge-3')->with(compact('challenge'));
         }
     }
 }

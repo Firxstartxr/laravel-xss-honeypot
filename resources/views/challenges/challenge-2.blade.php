@@ -2,6 +2,7 @@
 
 @section('content')
     <p>This time it is not going to be that easy</p>
+    {{ $challenge }}
     <!-- Don't use <script> lol -->
     <form action="{{Route('challenge-2')}}" method="POST">
     <input type="text" name="challenge2">
