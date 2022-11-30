@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Log;
 
 class ChallengeController extends Controller
 {
-    public function logInfo(Request $request)
+    public function logInfo(Request $request): array
     {
 
         return [$request->user()->name, $request->ip(), $request->userAgent(), $request->url()];
     }
 
-    public function challenge1(Request $request)
+    public function challenge1(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $challenge=$request->challenge1;
         if(!is_null($challenge) || !blank($challenge))
@@ -31,7 +31,7 @@ class ChallengeController extends Controller
         }
     }
 
-    public function challenge2(Request $request)
+    public function challenge2(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $challenge=$request->challenge2;
         if(!is_null($challenge) || !blank($challenge))
@@ -50,7 +50,7 @@ class ChallengeController extends Controller
         }
     }
 
-    public function challenge3(Request $request)
+    public function challenge3(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $challenge=$request->challenge3;
         if(!is_null($challenge) || !blank($challenge))
