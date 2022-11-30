@@ -35,8 +35,9 @@
                     @endauth
                 </div>
             @endif
-        <div>
-            <img src="{{ asset('hacker.gif') }}" alt="hacker" style="width: 20rem">
+            <div>
+                <img src="{{ asset('hacker.gif') }}" alt="hacker" style="width: 20rem">
+            </div>
         </div>
     </body>
 </html>

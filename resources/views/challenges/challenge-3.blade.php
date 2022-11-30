@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div>
+        <img src="{{ asset('canvas.png') }}" alt="hacker" style="width: 20rem; margin-bottom: 2rem">
+    </div>
     {{ $challenge }}
     <!-- Do people really read this? No more hints this time!-->
     <form action="{{Route('challenge-3')}}" method="POST">
