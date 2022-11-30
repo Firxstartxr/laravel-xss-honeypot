@@ -1,7 +1,7 @@
 # Honeypot Project
 ## Group 03
 
-System status before the deadline on November 25 10:00.
+### System status before the deadline on November 25 10:00.
 
 - [Website](https://group03web.hp.ti.howest.be/) is running on https
 - User authentication process is implemented
@@ -10,6 +10,10 @@ System status before the deadline on November 25 10:00.
 - Challenge 1 is only implemented
 - Users' payloads are logged
 - Authentication processes are logged
+
+### Update November 30
+
+- Challenges 3, 4 and 5 added
 
 ### Lecture login
 
