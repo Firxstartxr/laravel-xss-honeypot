@@ -67,4 +67,10 @@ class HomeController extends Controller
         $challenge =' ';
         return view ('challenges/challenge-3')->with(compact('challenge'));
     }
+
+    public function challenge4()
+    {
+        $challenge =' ';
+        return view ('challenges/challenge-4')->with(compact('challenge'));
+    }
 }
