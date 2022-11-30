@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Log;
 
 class ChallengeController extends Controller
 {
-    public function logPayload(Request $request)
+    public function logInfo(Request $request)
     {
 
+        return [$request->user()->name, $request->ip(), $request->userAgent(), $request->url()];
     }
 
     public function challenge1(Request $request)
@@ -17,10 +18,8 @@ class ChallengeController extends Controller
         $challenge=$request->challenge1;
         if(!is_null($challenge) || !blank($challenge))
         {
-            $user = $request->user()->name;
-            $ip = $request->ip();
-            $url = $request->url();
-            Log::alert("The user $user used $challenge payload from IP address $ip url $url");
+            $user = $this->logInfo($request);
+            Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
 
             return view('challenges/challenge-1-solved')->with(compact('challenge'));
         }
@@ -31,10 +30,9 @@ class ChallengeController extends Controller
         $challenge=$request->challenge2;
         if(!is_null($challenge) || !blank($challenge))
         {
-            $user = $request->user()->name;
-            $ip = $request->ip();
-            $url = $request->url();
-            Log::alert("The user $user used $challenge payload from IP address $ip url $url");
+            $user = $this->logInfo($request);
+            Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
+
             if (!str_contains($challenge, '<script>')) {
                 return view('challenges/challenge-2-solved')->with(compact('challenge'));
             }
@@ -46,13 +44,10 @@ class ChallengeController extends Controller
         $challenge=$request->challenge3;
         if(!is_null($challenge) || !blank($challenge))
         {
-            $user = $request->user()->name;
-            $ip = $request->ip();
-            $url = $request->url();
-            Log::alert("The user $user used $challenge payload from IP address $ip url $url");
-            if (!preg_match('</>', $challenge)) {
-                return view('challenges/challenge-3-solved')->with(compact('challenge'));
-            }
+            $user = $this->logInfo($request);
+            Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
+
+            return view('challenges/challenge-3-solved')->with(compact('challenge'));
         }
     }
 }

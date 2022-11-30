@@ -5,7 +5,6 @@
     <!-- Do people really read this? -->
     <form action="{{Route('challenge-3')}}" method="POST">
         <input type="text" name="challenge3">
-        <script></script>
         <button type="submit">Click me daddy</button>
     </form>
 @endsection
