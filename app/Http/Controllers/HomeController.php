@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function upload(Request $request): RedirectResponse
     {
         $request->validate([
-            'file' => 'required|mimes:png,jpg,jpeg|max:2048'
+            'file' => 'required|mimes:png,jpg,jpeg,gif|max:2048'
         ]);
 
         try {
