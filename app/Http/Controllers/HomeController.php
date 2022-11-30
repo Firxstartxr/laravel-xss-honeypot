@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -39,9 +40,8 @@ class HomeController extends Controller
     public function upload(Request $request): RedirectResponse
     {
         $request->validate([
-            'file' => 'required|mimes:png,jpg,jpeg,gif|max:2048'
+            'image' => 'required|mimes:png,jpg,jpeg|max:5000'
         ]);
-
         try {
             if($request->hasFile('image')){
                 $filename = $request->image->getClientOriginalName();
