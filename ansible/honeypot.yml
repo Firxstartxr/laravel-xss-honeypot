@@ -20,11 +20,11 @@
     - vars/local.yml
   tasks:
     - include_tasks: tasks/install.yml
-    - include_tasks: tasks/apache2.yml
     - include_tasks: tasks/config.yml 
+    - include_tasks: tasks/apache2.yml
     - include_tasks: tasks/mysql.yml
     # - include_tasks: tasks/laravel.yml
-    - include_tasks: tasks/elastic.yml
+    # - include_tasks: tasks/elastic.yml
 
   handlers:
    - name: Reload Apache

@@ -1,15 +1,19 @@
+
+- name: Set timezone to "Europe/Brussels"
+  shell: sudo timedatectl set-timezone "Europe/Brussels"
+
 - name: Install Elasticsearch repository public key
-  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor | sudo tee /usr/share/keyrings/elasticsearch.gpg
 
 - name: Add Elastic search repository
-  shell: echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+  shell: echo "deb [signed-by=/usr/share/keyrings/elasticsearch.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
 
 - name: Update apt repository
   shell: sudo apt update
 
 - name: Install ELK dependencies
   apt: name={{ item }} update_cache=yes state=latest
-  loop: [ 'curl', 'gnupg', 'apt-transport-https', 'default-jdk' ]
+  loop: [ 'curl', 'gnupg', 'build-essential git', 'curl software-properties-common gnupg2', 'apt-transport-https ca-certificates', 'default-jdk' ]
 
 - name: Install ELK
   apt: name={{ item }} update_cache=yes state=latest
