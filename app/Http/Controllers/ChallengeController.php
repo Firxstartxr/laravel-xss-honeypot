@@ -90,4 +90,23 @@ class ChallengeController extends Controller
             return view('challenges/challenge-4')->with(compact('challenge'));
         }
     }
+
+    public function challenge5(Request $request): Factory|View|Application
+    {
+        $challenge=$request->challenge5;
+        if(!is_null($challenge) || !blank($challenge))
+        {
+            $user = $this->logInfo($request);
+            Log::alert("The user $user[0] used $challenge payload from IP address $user[1] using $user[2] at $user[3]");
+
+            if (str_contains($challenge, '<article')) {
+                return view('challenges/challenge-5-solved')->with(compact('challenge'));
+            } else {
+                return view('challenges/challenge-5')->with(compact('challenge'));
+            }
+        }
+        else {
+            return view('challenges/challenge-5')->with(compact('challenge'));
+        }
+    }
 }

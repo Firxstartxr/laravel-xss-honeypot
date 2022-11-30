@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="https://en.wiktionary.org/wiki/figure" target="_blank">Hint</a>
+    <a href="https://en.wiktionary.org/wiki/figure" target="_blank">This is not a rick roll I swear</a>
     <br>
     {{ $challenge }}
     <!-- You would ask, why is there only xss? I also don't know :D -->

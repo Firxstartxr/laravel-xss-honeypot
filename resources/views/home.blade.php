@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="card-body">
-                    <a href="#">Challenge 5</a>
+                    <a href="{{ route('challenge-5') }}">Challenge 5</a>
                 </div>
             </div>
         </div>
