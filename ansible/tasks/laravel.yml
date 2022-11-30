@@ -1,4 +1,5 @@
 # Config Laravel
+# install dependecies wont work until edit the composer.json file in the laravel accordingly
 
 - name: Laravel - Set up .env file
   template:
