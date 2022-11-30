@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -13,7 +16,7 @@ class ChallengeController extends Controller
         return [$request->user()->name, $request->ip(), $request->userAgent(), $request->url()];
     }
 
-    public function challenge1(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function challenge1(Request $request): Factory|View|Application
     {
         $challenge=$request->challenge1;
         if(!is_null($challenge) || !blank($challenge))
@@ -31,7 +34,7 @@ class ChallengeController extends Controller
         }
     }
 
-    public function challenge2(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function challenge2(Request $request): Factory|View|Application
     {
         $challenge=$request->challenge2;
         if(!is_null($challenge) || !blank($challenge))
@@ -50,7 +53,7 @@ class ChallengeController extends Controller
         }
     }
 
-    public function challenge3(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function challenge3(Request $request): Factory|View|Application
     {
         $challenge=$request->challenge3;
         if(!is_null($challenge) || !blank($challenge))
