@@ -28,6 +28,7 @@ class LogRegisteredUser
     {
         $ip = Request::ip();
         $url = Request::url();
-        Log::info("The user {$event->user->name} created account from IP address $ip url $url");
+        $user = $event->user->name;
+        Log::info("$ip $url $user successfully registered");
     }
 }

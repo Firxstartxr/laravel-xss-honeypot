@@ -30,6 +30,7 @@ class LogFailedLogin
     {
         $ip = Request::ip();
         $url = Request::url();
-        Log::info("The user {$event->user->name} failed to login from IP address $ip url $url");
+        $user = $event->user->name;
+        Log::info("$ip $url $user failed to log in");
     }
 }

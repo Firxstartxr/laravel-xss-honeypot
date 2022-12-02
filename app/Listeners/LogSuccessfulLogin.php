@@ -30,6 +30,7 @@ class LogSuccessfulLogin
     {
         $ip = Request::ip();
         $url = Request::url();
-        Log::info("The user {$event->user->name} successfully logged in from IP address $ip url $url");
+        $user = $event->user->name;
+        Log::info("$ip $url $user successfully logged in");
     }
 }
