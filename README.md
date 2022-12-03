@@ -15,6 +15,11 @@
 
 - Challenges 3, 4 and 5 added
 
+### Update December 2
+
+- Logging modified to suite Kibana fields
+- Username additional validation added
+
 ### Lecture login
 
 Lecturers can log in with ```lecturer@howest.be``` and password ```ThisIsTheM0stSecureKibanaEver```.
