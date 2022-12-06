@@ -28,7 +28,10 @@ class LogFailedLogin
     {
         $ip = Request::ip();
         $url = Request::url();
-        $user = $event->user->name;
-        Log::info("$ip $url $user failed to log in");
+        $email = Request::instance();
+        Log::info($email);
+        /*if ($email is not in db -> log unknown)*/
+        /*$user = $event->user->name;*/
+        /*Log::info("$ip $url $user failed to log in");*/
     }
 }
