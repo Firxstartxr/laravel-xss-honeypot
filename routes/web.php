@@ -49,6 +49,6 @@ Route::get('/challenge-5', [HomeController::class, 'challenge5'])->name('challen
 
 Route::post('/challenge-5', [ChallengeController::class, 'challenge5']);
 
-Route::get('/BRRRRRRR', [HomeController::class, 'admin'])->name('admin');
+Route::get('/BRRRRRRR', [HomeController::class, 'admin'])->name('admin')->middleware('admin');
 
-Route::get('/BRRRRRRR', [UserController::class, 'index']);
+Route::get('/BRRRRRRR', [UserController::class, 'index'])->middleware('admin');
