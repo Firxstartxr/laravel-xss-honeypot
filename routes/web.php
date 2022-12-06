@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\User;
@@ -49,3 +50,5 @@ Route::get('/challenge-5', [HomeController::class, 'challenge5'])->name('challen
 Route::post('/challenge-5', [ChallengeController::class, 'challenge5']);
 
 Route::get('/BRRRRRRR', [HomeController::class, 'admin'])->name('admin');
+
+Route::get('/BRRRRRRR', [UserController::class, 'index']);
