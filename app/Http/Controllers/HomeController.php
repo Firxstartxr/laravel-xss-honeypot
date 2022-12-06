@@ -38,19 +38,15 @@ class HomeController extends Controller
 
     public function upload(Request $request): RedirectResponse
     {
-        $request->validate([
-            'image' => 'required|mimes:png,jpg,jpeg|max:5000'
-        ]);
-        try {
-            if($request->hasFile('image')){
-                $filename = $request->image->getClientOriginalName();
-                $request->image->storeAs('images',$filename,'public');
-                Auth()->user()->update(['image'=>$filename]);
-            }
-        } catch (Exception) {
-        return redirect()->back();
-    }
-
+        $file = $request->file('image');
+        $mimeType = $file->getMimeType();
+        if ($mimeType == 'image/jpeg' || $mimeType == 'image/png') {
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            Auth()->user()->update(['image'=>$filename]);
+        } else {
+            return redirect("https://www.youtube.com/watch?v=xvFZjo5PgG0");
+        }
         return redirect()->back();
     }
 
