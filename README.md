@@ -20,6 +20,10 @@
 - Logging modified to suite Kibana fields
 - Username additional validation added
 
+### Update December 2
+
+- Added admin panel with overview of all registered users
+
 ### Lecture login
 
 Lecturers can log in with ```lecturer@howest.be``` and password ```ThisIsTheM0stSecureKibanaEver```.
