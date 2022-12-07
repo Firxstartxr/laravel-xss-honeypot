@@ -23,6 +23,10 @@
 ### Update December 2
 
 - Added admin panel with overview of all registered users
+- 
+### Update December 7
+
+- Added functionality to enable and disable users
 
 ### Lecture login
 
