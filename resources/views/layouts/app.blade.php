@@ -55,7 +55,7 @@
                                 </a>
 
                                 @if(Auth::user()->image)
-                                    <img class="image rounded-circle" src="{{"~/honeypot/public/storage/images/".Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0; ">
+                                    <img class="image rounded-circle" src="{{"storage/images/".Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0; ">
                                 @endif
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
