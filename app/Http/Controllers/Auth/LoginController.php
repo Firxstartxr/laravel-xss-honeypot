@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -43,6 +44,16 @@ class LoginController extends Controller
     {
         if ($user->email === env('ADMIN_EMAIL')) {
             return redirect()->intended(env('ADMIN_REDIRECT'));
+        }
+        if(auth()->check() && (auth()->user()->status == 0))
+        {
+            Auth::logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect()->route('login')->with('error', 'u r bann3d k1dd0 xDxDxD');
         }
 
         return redirect()->intended('/home');

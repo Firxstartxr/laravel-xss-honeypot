@@ -3,9 +3,9 @@
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +49,8 @@ Route::get('/challenge-5', [HomeController::class, 'challenge5'])->name('challen
 
 Route::post('/challenge-5', [ChallengeController::class, 'challenge5']);
 
-Route::get('/BRRRRRRR', [HomeController::class, 'admin'])->name('admin')->middleware('admin');
+Route::get(env('ADMIN_REDIRECT'), [HomeController::class, 'admin'])->name('admin')->middleware('admin');
 
-Route::get('/BRRRRRRR', [UserController::class, 'index'])->middleware('admin');
+Route::get(env('ADMIN_REDIRECT'), [UserController::class, 'index'])->middleware('admin');
+
+Route::patch('/users/{user}', [UserController::class, 'admin'])->middleware('admin');
