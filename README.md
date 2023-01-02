@@ -1,33 +1,9 @@
-# Honeypot Project
-## Group 03
+# Laravel XSS Honeypot
+**Honeypot** is a computer security mechanism set to detect, deflect, or, in some manner, counteract attempts at unauthorized use of information systems. Generally, a honeypot consists of data (for example, in a network site) that appears to be a legitimate part of the site which contains information or resources of value to attackers. It is actually isolated, monitored, and capable of blocking or analyzing the attackers.
 
-### System status before the deadline on November 25 10:00.
+# Challenges
+**XSS** allows a user supplying untrusted input that, when loaded without proper validation or escaping, will execute a malicious action.
+There are 5 easy **XSS** challenges for beginner pentesters as well as hints for them, so you don't get frustrated while solving.
 
-- [Website](https://group03web.hp.ti.howest.be/) is running on https
-- User authentication process is implemented
-- Avatar upload feature is implemented
-- Admin dashboard is not yet implemented
-- Challenge 1 is only implemented
-- Users' payloads are logged
-- Authentication processes are logged
-
-### Update November 30
-
-- Challenges 3, 4 and 5 added
-
-### Update December 2
-
-- Logging modified to suite Kibana fields
-- Username additional validation added
-
-### Update December 2
-
-- Added admin panel with overview of all registered users
-- 
-### Update December 7
-
-- Added functionality to enable and disable users
-
-### Lecture login
-
-Lecturers can log in with ```lecturer@howest.be``` and password ```ThisIsTheM0stSecureKibanaEver```.
+# Logging
+The application uses extended logging. All user actions are being logged, so we can monitor users' **payloads**. **Observers**, **events** and **listeners** are used for that.
